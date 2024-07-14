@@ -1,3 +1,5 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -64,28 +66,6 @@ return {
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
-        -- quick save
-        ["<C-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
-        ["<leader>R"] = { "ciw", desc = "Change word" }, -- change description but the same command
-        ["<C-k>"] = { ":m .+1<CR>==", desc = "Move line down" }, -- change description but the same commandp
-        ["<C-j>"] = { ":m .-2<CR>==", desc = "Move line up" }, -- change description but the ame command
-        ["<leader>xx"] = { ":!chmod +x %", desc = "make the file eecutable" }, -- change description but the same command
-        ["<C-f>"] = { ":silent !tmux neww ~/tmx-sessionalize\n", desc = "make the file eecutable" }, -- change description but the same command
-        -- copy all text in the file
-        ["<leader>ca"] = { ":%y<CR>", desc = "Copy all text" }, -- change description but the same command
-        ["<leader>rs"] = { ":LspOverloadsSignature<CR>", desc = "Show signature" }, -- change description but the same command
-      },
-      v = {
-        ["<C-j>"] = { ":m '>+1<CR>gv=gv", desc = "Move line down" }, -- change description but the same commandp
-        ["<C-k>"] = { ":m '<-2<CR>gv=gv", desc = "Move line up" }, -- change description but the same command
-      },
-      t = {
-        -- setting a mapping to false will disable it
-        -- ["<esc>"] = false,
-      },
-      -- insert mode mappings
-      i = {
-        ["<C-s>"] = { ":LspOverloadsSignature<CR>", desc = "Show signature" }, -- change description but the same command
       },
     },
   },
