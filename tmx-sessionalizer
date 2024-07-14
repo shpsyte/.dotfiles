@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+echo "Starting tmx-sessionalizer" >> /tmp/tmx-sessionalizer.log
+
+session=$(find ~ ~/Workspace ~/Study ~/.config/nvim -mindepth 1 -maxdepth 2 -type d | fzf)
+echo "Session selected: $session" >> /tmp/tmx-sessionalizer.log
+
+session_name=$(basename "$session" | tr . _)
+echo "Session name: $session_name" >> /tmp/tmx-sessionalizer.log
+
+if ! tmux has-session -t "$session_name" 2> /dev/null; then
+    echo "Creating new tmux session: $session_name" >> /tmp/tmx-sessionalizer.log
+    tmux new-session -s "$session_name" -c "$session" -d -n "base"
+fi
+
+tmux switch-client -t "$session_name"
+echo "Switched to session: $session_name" >> /tmp/tmx-sessionalizer.log
+
