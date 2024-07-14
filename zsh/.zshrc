@@ -24,7 +24,7 @@ POWERLEVEL9K_MODE="nerdfont-complete"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
-CASE_SENSITIVE="true"
+# CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -111,9 +111,16 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-
+bindkey -s ^f "~/.dotfiles/tmx-sessionalizer\n"
 
 source /usr/share/nvm/init-nvm.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+
+export PATH="$PATH:$HOME/.dotnet/tools"
+
+
+bindkey '^[[1;5L' 'setxkbmap -model abnt2 -layout br -variant abnt2'
