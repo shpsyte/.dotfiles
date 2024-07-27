@@ -112,6 +112,8 @@ source $ZSH/oh-my-zsh.sh
 
 
 bindkey -s ^f "~/.dotfiles/tmx-sessionalizer\n"
+bindkey -s ^b "~/.dotfiles/bluetooth"
+
 
 source /usr/share/nvm/init-nvm.sh
 
