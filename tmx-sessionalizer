@@ -1,11 +1,22 @@
 #!/usr/bin/env bash
 
-session=$(find ~ ~/Work/Workspace/ ~/Work/study ~/Work/study  ~/.config/nvim -mindepth 1 -maxdepth 2 -type d | fzf)
+session=$(find ~ ~/Work/Workspace/ ~/Work/study ~/Work/study  ~/.config/nvim -mindepth 1 -maxdepth 5 -type d | fzf)
 session_name=$(basename "$session" | tr . _)
 
 if ! tmux has-session -t "$session_name" 2> /dev/null; then
-    tmux new-session -s "$session_name" -c "$session" -d -n "base"
+    tmux new-session -s "$session_name" -c "$session" -d -n "code"
+    tmux new-window -t "$session_name:" -n "server" -c "$session"
+
+    tmux split-window -h -t "$session_name:server"
+
+    tmux resize-pane -t "$session_name:server.1" -x 50
+    tmux send-keys -t "$session_name:server.1" "echo 'Shell comand! happy coding!'" C-m
+
+    tmux select-pane -t "$session_name:server.0"
+
 fi
+
+tmux select-window -t "$session_name:code"
 
 tmux switch-client -t "$session_name"
 

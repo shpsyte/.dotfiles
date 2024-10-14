@@ -113,7 +113,7 @@ source $ZSH/oh-my-zsh.sh
 
 bindkey -s ^f "~/.dotfiles/tmx-sessionalizer\n"
 bindkey -s ^b "~/.dotfiles/bluetooth"
-
+bindkey -s '^[P' 'scrot -s - | xclip -selection clipboard -t image/png\n'
 
 source /usr/share/nvm/init-nvm.sh
 
