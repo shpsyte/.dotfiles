@@ -120,7 +120,9 @@ source /usr/share/nvm/init-nvm.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
+function cursor {
+  (nohup / "$@" > /dev/null 2>&1 &)
+}
 
 export PATH="$PATH:$HOME/.dotnet/tools"
 

@@ -7,9 +7,11 @@ if ! tmux has-session -t "$session_name" 2> /dev/null; then
     tmux new-session -s "$session_name" -c "$session" -d -n "code"
     tmux new-window -t "$session_name:" -n "server" -c "$session"
 
-    tmux split-window -h -t "$session_name:server"
+    tmux split-window -h -t "$session_name:server" -c "$session"
 
-    tmux resize-pane -t "$session_name:server.1" -x 50
+    # tmux resize-pane -t "$session_name:server.1" -x 40
+     tmux resize-pane -t "$session_name:server.1" -x "$(($(tmux display -p "#{window_width}") / 2))"
+
     tmux send-keys -t "$session_name:server.1" "echo 'Shell comand! happy coding!'" C-m
 
     tmux select-pane -t "$session_name:server.0"
