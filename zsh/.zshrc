@@ -125,6 +125,7 @@ function cursor {
 }
 
 export PATH="$PATH:$HOME/.dotnet/tools"
+export TERMINAL=alacritty
 
 
 bindkey '^[[1;5L' 'setxkbmap -model abnt2 -layout br -variant abnt2'
